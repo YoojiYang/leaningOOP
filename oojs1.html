@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>OOJS: Task 1</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+  // OOJS1の課題
+
+  // Shapeクラスの設定
+  class Shape {
+    // 変数を宣言
+    name;
+    sides;
+    sideLength;
+
+    // 引数を受け取るコンストラクターを作成する
+    constructor(name, sides, sideLength) {
+      // 各プロパティを初期化する
+      this.name = name;
+      this.sides = sides;
+      this.sideLength = sideLength;
+    }
+
+    // thisを用いて参照できるcaloPerimeterメソッドを定義する
+    calcPerimeter() {
+      console.log(this.sides * this.sideLength);
+    }
+  }
+
+  // Shapeクラスのインスタンスtriangleとsquareを定義
+  const triangle = new Shape("triangle", 3, 3);
+  const square = new Shape("square", 4, 5);
+
+  // それぞれのインスタンスで、calcPerimeterメソッドを実行
+  triangle.calcPerimeter();
+  square.calcPerimeter();
+
+
+
+  // OOJS２の課題
+
+  // Shapeクラスを継承したSquareクラスを作成する
+  class Square extends Shape {
+    sideLength;
+
+    constructor(sideLength) {
+      super("square", 4, sideLength);
+      this.sideLength = sideLength;
+    }
+
+    // 正方形の面積を計算するcalcAreaメソッドを定義する
+    calcArea() {
+      console.log(this.sideLength ** 2);
+    }
+  }
+
+  // Squareクラスのインスタンスsquare2を定義
+  const square2 = new Square(5);
+
+  // square2でcalcAreaメソッドを実行
+  square2.calcArea();
+  </script>
+
+</html>
